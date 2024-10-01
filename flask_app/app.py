@@ -33,7 +33,8 @@ def add_user():
         data = request.form
         
         ## Stage 1: Plain Text
-
+        new_user = User(username=data['username'], email=data['email'], password=data['password'])  # Store password in plain text
+       
         ## Stage 2: Encryption
 
         ## Stage 3: Hashing
@@ -41,8 +42,8 @@ def add_user():
         ## Stage 4: Hashing and Salting
         
         ## Stage 5: Bcrypt
-        hashed_password = bcrypt.hashpw(data['password'].encode(), bcrypt.gensalt()) # Hash the password
-        new_user = User(username=data['username'], email=data['email'], password_hash=hashed_password.decode()) # Store hashed password  
+        # hashed_password = bcrypt.hashpw(data['password'].encode(), bcrypt.gensalt()) # Hash the password
+        # new_user = User(username=data['username'], email=data['email'], password_hash=hashed_password.decode()) # Store hashed bcrypt password  
         
         db.session.add(new_user)
         db.session.commit()
