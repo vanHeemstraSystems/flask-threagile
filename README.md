@@ -1,2 +1,116 @@
-# flask-threagile
-Flask Treagile
+flask-threagile
+# Flask Treagile
+
+## Introduction
+
+Here’s a simple example of a Python Flask application using SQLAlchemy, along with the integration of the threagile security vulnerability detection tool.
+
+### Flask Application Example
+
+**Directory Structure:**
+```
+.
+├── threagile_config.yaml
+├── flask_app
+    ├── app.py
+    ├── models.py
+    ├── requirements.txt
+    ├── templates
+        ├── login.html
+        ├── add_user.html
+        ├── delete_user.html
+```
+
+**1. `requirements.txt`**
+```plaintext
+bcrypt
+cryptography
+Flask
+Flask-SQLAlchemy
+Werkzeug
+```
+
+### Integrating Threagile
+
+To use threagile for vulnerability detection, follow these steps:
+
+1. **Install threagile**: 
+   Follow the installation instructions from the [threagile GitHub repository](https://github.com/threagile/threagile).
+
+2. **Run Security Analysis**:
+   Once installed, you can run the analysis on your Flask application directory to identify vulnerabilities.
+
+3. **Command Example**:
+   ```bash
+   threagile analyze ./flask_app
+   ```
+
+This setup allows you to build a basic Flask application with SQLAlchemy and integrate security checks using threagile.
+
+The command `threagile analyze ./flask_app` runs the Threagile security analysis tool on the specified directory (`./flask_app`). This command scans the application code for potential security vulnerabilities, such as:
+
+- **Code Injection**: Identifying places where user input could lead to injection attacks.
+- **Authentication Issues**: Checking for weak authentication mechanisms.
+- **Data Exposure**: Detecting sensitive data handling practices.
+- **Dependency Vulnerabilities**: Analyzing third-party libraries for known security issues.
+
+The tool generates a report highlighting any identified vulnerabilities, along with recommendations for remediation.
+
+Threagile typically requires a configuration file, often in YAML format, to specify the analysis settings and parameters. This file allows you to customize the scanning process, including which files to analyze, specific rules to apply, and other configurations. 
+
+Make sure to include a properly formatted YAML file in your repository for effective analysis.
+
+Here’s a sample YAML configuration file for Threagile that you can use for the Flask application:
+
+**`threagile_config.yaml`**
+
+```yaml
+# Threagile Configuration File
+
+project:
+  name: Flask User Management App
+  version: 1.0
+
+scan:
+  directories:
+    - ./flask_app
+  file_types:
+    - python
+  exclude:
+    - tests/
+    - venv/
+  
+rules:
+  - name: SQL Injection Prevention
+    description: Ensure user inputs are properly sanitized.
+    enabled: true
+
+  - name: Password Hashing
+    description: Check that passwords are hashed before storage.
+    enabled: true
+
+  - name: Sensitive Data Exposure
+    description: Identify any plaintext sensitive information.
+    enabled: true
+
+report:
+  format: markdown
+  output: reports/security_report.md
+```
+
+### Key Sections
+- **project**: Basic information about the project.
+- **scan**: Specifies directories to scan and file types to include or exclude.
+- **rules**: Lists specific security checks to perform.
+- **report**: Configures the format and output location for the analysis report.
+
+Adjust this configuration as needed to suit your specific application and security requirements.
+
+To generate the Threagile report every time the Flask application runs, you can modify the `app.py` file to include a function that executes the Threagile analysis. 
+
+### Explanation
+- **`run_threagile` Function**: This function constructs the command to run Threagile and executes it using `subprocess.run()`.
+- **`@app.before_first_request` Decorator**: This decorator ensures that the Threagile analysis runs before the first request to the application, generating the report each time the server starts.
+
+### Note
+Ensure that Threagile is installed and accessible in your environment. This implementation will generate the report every time you start the Flask application. Adjust the command as necessary based on your specific setup.
