@@ -10,8 +10,6 @@ Here’s a simple example of a Python Flask application using SQLAlchemy, along 
 **Directory Structure:**
 ```
 .
-├── .gitignore
-├── README.md
 ├── flask_app
 |   ├── .venv
 |   |   └── .keepgit
@@ -26,6 +24,8 @@ Here’s a simple example of a Python Flask application using SQLAlchemy, along 
 |       └── .keepgit
 ├── reports
 |   └── .keepgit
+├── .gitignore
+├── README.md
 └── threagile_config.yaml
 ```
 
