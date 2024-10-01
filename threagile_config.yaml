@@ -11,7 +11,7 @@ scan:
     - python
   exclude:
     - tests/
-    - venv/
+    - .venv/
   
 rules:
   - name: SQL Injection Prevention
