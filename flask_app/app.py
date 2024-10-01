@@ -11,8 +11,8 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 
 ## Stage 1: Plain Text
-# with app.app_context():
-#    db.create_all()
+with app.app_context():
+   db.create_all()
 
 def run_threagile():
     """Run Threagile analysis and generate a report."""
@@ -31,9 +31,19 @@ def home():
 def add_user():
     if request.method == 'POST':
         data = request.form
+        
+        ## Stage 1: Plain Text
+
+        ## Stage 2: Encryption
+
+        ## Stage 3: Hashing
+
+        ## Stage 4: Hashing and Salting
+        
+        ## Stage 5: Bcrypt
         hashed_password = bcrypt.hashpw(data['password'].encode(), bcrypt.gensalt()) # Hash the password
-        new_user = User(username=data['username'], email=data['email'],
-        password_hash=hashed_password.decode()) # Store hashed password     
+        new_user = User(username=data['username'], email=data['email'], password_hash=hashed_password.decode()) # Store hashed password  
+        
         db.session.add(new_user)
         db.session.commit()
         return redirect(url_for('add_user'))
@@ -44,8 +54,21 @@ def login_user():
     if request.method == 'POST':
         data = request.form
         user = User.query.filter_by(username=data['username']).first()
-        if user and bcrypt.checkpw(data['password'].encode(), user.password_hash.encode()): # Verify password
+        
+        ## Stage 1: Plain Text
+        if user and user.password == data['password']:  # Verify password in plain text
             return jsonify({'message': 'Login successful'}), 200
+            
+        ## Stage 2: Encryption
+
+        ## Stage 3: Hashing
+
+        ## Stage 4: Hashing and Salting
+        
+        ## Stage 5: Bcrypt
+        # if user and bcrypt.checkpw(data['password'].encode(), user.password_hash.encode()): # Verify password in bcrypt
+        #    return jsonify({'message': 'Login successful'}), 200
+            
         return jsonify({'message': 'Invalid credentials'}), 401 
     return render_template('login.html')
 
@@ -53,7 +76,8 @@ def login_user():
 def delete_user():
     if request.method == 'POST':
         data = request.form
-        user = User.query.filter_by(username=data['username']).first() if user:
+        user = User.query.filter_by(username=data['username']).first() 
+        if user:
             db.session.delete(user) 
             db.session.commit()
             return redirect(url_for('delete_user'))
