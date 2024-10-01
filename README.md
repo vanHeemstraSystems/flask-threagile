@@ -17,9 +17,10 @@ Here’s a simple example of a Python Flask application using SQLAlchemy, along 
 |   ├── models.py
 |   ├── requirements.txt
 |   ├── templates
-|   |   ├── login.html
 |   |   ├── add_user.html
-|   |   └── delete_user.html
+|   |   ├── delete_user.html
+|   |   ├── home.html
+|   |   └── login.html
 |   └── tests
 |       └── .keepgit
 ├── reports
