@@ -9,7 +9,7 @@ class User(db.Model):
     email = db.Column(db.String(120), unique=True, nullable=False)
 
     ## Stage 1: Plain Text
-    # 
+    # password = db.Column(db.String(128), nullable=False)  # Store password in plain text
 
     ## Stage 2: Encryption
     # password = db.Column(db.LargeBinary, nullable=False)  # Store encrypted password
