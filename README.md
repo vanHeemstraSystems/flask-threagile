@@ -47,7 +47,7 @@ Werkzeug
 
 - Docker
 
-Execute Threagile on a model yaml file (via docker): 
+Execute Threagile on a model yaml file (via docker) from the root directory of this repository: 
 
 ```
 $ ./threagile.sh -verbose -model /app/work/threagile_config.yaml -output /app/work/reports
