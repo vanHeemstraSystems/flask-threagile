@@ -10,18 +10,19 @@ Here’s a simple example of a Python Flask application using SQLAlchemy, along 
 **Directory Structure:**
 ```
 .
-├── threagile_config.yaml
+├── .gitignore
+├── README.md
 ├── flask_app
-    ├── app.py
-    ├── models.py
-    ├── requirements.txt
-    ├── templates
-        ├── login.html
-        ├── add_user.html
-        ├── delete_user.html
+|   ├── app.py
+|   ├── models.py
+|   ├── requirements.txt
+|   └── templates
+|       ├── login.html
+|       ├── add_user.html
+|       ├── delete_user.html
 ├── reports
-    ├── .keepgit
-
+|   └── .keepgit
+└── threagile_config.yaml
 ```
 
 **1. `requirements.txt`**
