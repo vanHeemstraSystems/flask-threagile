@@ -53,7 +53,9 @@ Execute Threagile on a model yaml file (via docker):
 $ ./threagile.sh -verbose -model /app/work/threagile_config.yaml -output /app/work/reports
 ```
 
-### How to run the Application
+### How to run the Flask Application
+
+**Note**: You can run the Flask Application from within the Threagile Docker Container.
 
 **Requirements**:
 - Python3
