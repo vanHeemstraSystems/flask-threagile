@@ -4,10 +4,15 @@ import bcrypt
 from flask import Flask, request, jsonify, render_template, redirect, url_for 
 from models import db, User
 
-app = Flask(__name__) app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db' 
+app = Flask(__name__) 
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db' 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False 
 
 db.init_app(app)
+
+## Stage 1: Plain Text
+# with app.app_context():
+#    db.create_all()
 
 def run_threagile():
     """Run Threagile analysis and generate a report."""
