@@ -15,7 +15,7 @@ class User(db.Model):
     # password = db.Column(db.LargeBinary, nullable=False)  # Store encrypted password
   
     ## Stage 3: Hashing
-    # 
+    # password = db.Column(db.String(64), nullable=False)  # Store hashed password
   
     ## Stage 4: Hashing and Salting
     # 
