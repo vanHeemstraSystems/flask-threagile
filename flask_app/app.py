@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import subprocess
-import bcrypt
+import bcrypt # Used for bcrypt
+from cryptography.fernet import Fernet # Used for encryption
 from flask import Flask, request, jsonify, render_template, redirect, url_for 
 from models import db, User
 
