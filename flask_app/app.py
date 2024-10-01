@@ -51,7 +51,7 @@ def add_user():
         data = request.form
         
         # Stage 1: Plain Text
-        new_user = User(username=data['username'], email=data['email'], password=data['password'])  # Store password in plain text
+         new_user = User(username=data['username'], email=data['email'], password=data['password'])  # Store password in plain text
         # End Stage 1
        
         ## Stage 2: Encryption
@@ -87,8 +87,8 @@ def login_user():
         user = User.query.filter_by(username=data['username']).first()
         
         # Stage 1: Plain Text
-        if user and user.password == data['password']:  # Compare passwords in plain text
-            return jsonify({'message': 'Login successful'}), 200
+         if user and user.password == data['password']:  # Compare passwords in plain text
+             return jsonify({'message': 'Login successful'}), 200
         # End Stage 1
             
         ## Stage 2: Encryption
