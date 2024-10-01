@@ -42,6 +42,11 @@ def before_first_request():
 def home():
     return render_template('home.html')
 
+## Stage 3: Hashing
+# def hash_password(password):
+#    """Hash a password using SHA-256."""
+#    return hashlib.sha256(password.encode()).hexdigest()
+
 @app.route('/add_user', methods=['GET', 'POST']) 
 def add_user():
     if request.method == 'POST':
@@ -55,6 +60,8 @@ def add_user():
         # new_user = User(username=data['username'], email=data['email'], password=encrypted_password)
         
         ## Stage 3: Hashing
+        # hashed_password = hash_password(data['password'])  # Hash the password
+        # new_user = User(username=data['username'], email=data['email'], password=hashed_password)
 
         ## Stage 4: Hashing and Salting
         
