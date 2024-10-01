@@ -45,6 +45,8 @@ Werkzeug
 
 **Requirements**:
 
+- Docker
+
 Execute Threagile on a model yaml file (via docker): 
 
 ```
