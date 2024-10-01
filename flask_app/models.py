@@ -18,10 +18,10 @@ class User(db.Model):
     # password = db.Column(db.String(64), nullable=False)  # Store hashed password
   
     ## Stage 4: Hashing and Salting
-    # 
+    # password_hash = db.Column(db.String(128), nullable=False)  # Store hashed and salted password
   
     ## Stage 5: BCrypt  
-    # password_hash = db.Column(db.String(128), nullable=False) # Store hashed password
+    # password_hash = db.Column(db.String(128), nullable=False) # Store hashed password with bcrypt
 
 def __repr__(self):
 return f'<User {self.username}>'
