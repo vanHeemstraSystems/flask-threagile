@@ -1,2 +1,3 @@
-tests
-.venv
+flask-app/tests/
+flask_app/.venv/
+__pycache__
