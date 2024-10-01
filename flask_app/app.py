@@ -19,10 +19,12 @@ def run_threagile():
     command = ['threagile', 'analyze', './flask_app', '--config', 'threagile_config.yaml']     
     subprocess.run(command)
 
-@app.before_first_request def before_first_request():
+@app.before_first_request 
+def before_first_request():
     run_threagile()
 
-@app.route('/') def home():
+@app.route('/') 
+def home():
     return render_template('home.html')
 
 @app.route('/add_user', methods=['GET', 'POST']) 
