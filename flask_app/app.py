@@ -15,6 +15,19 @@ db.init_app(app)
 with app.app_context():
    db.create_all()
 
+## Stage 2: Encryption
+# key = Fernet.generate_key() # Generate a key for encryption and decryption
+# cipher_suite = Fernet(key)
+#
+# with app.app_context():
+#   db.create_all()
+
+## Stage 3: Hashing
+
+## Stage 4: Hashing and Salting
+
+## Stage 5: Bcrypt
+
 def run_threagile():
     """Run Threagile analysis and generate a report."""
     command = ['threagile', 'analyze', './flask_app', '--config', 'threagile_config.yaml']     
@@ -37,7 +50,9 @@ def add_user():
         new_user = User(username=data['username'], email=data['email'], password=data['password'])  # Store password in plain text
        
         ## Stage 2: Encryption
-
+        # encrypted_password = cipher_suite.encrypt(data['password'].encode())  # Encrypt the password
+        # new_user = User(username=data['username'], email=data['email'], password=encrypted_password)
+        
         ## Stage 3: Hashing
 
         ## Stage 4: Hashing and Salting
@@ -62,7 +77,11 @@ def login_user():
             return jsonify({'message': 'Login successful'}), 200
             
         ## Stage 2: Encryption
-
+        # if user:
+        #    decrypted_password = cipher_suite.decrypt(user.password).decode()  # Decrypt the stored password
+        #    if decrypted_password == data['password']:
+        #        return jsonify({'message': 'Login successful'}), 200
+       
         ## Stage 3: Hashing
 
         ## Stage 4: Hashing and Salting
