@@ -20,7 +20,8 @@ Here’s a simple example of a Python Flask application using SQLAlchemy, along 
 |   |   ├── add_user.html
 |   |   ├── delete_user.html
 |   |   ├── home.html
-|   |   └── login.html
+|   |   ├── login.html
+|   |   └── users.html
 |   └── tests
 |       └── .keepgit
 ├── reports
