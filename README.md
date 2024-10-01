@@ -58,7 +58,7 @@ $ ./threagile.sh -verbose -model /app/work/threagile_config.yaml -output /app/wo
 **Note**: You can run the Flask Application from within the Threagile Docker Container.
 
 **Requirements**:
-- Python3
+- Python3 (If run inside Threagile Docker Container, the Docker Container needs to facilitate Python3).
 
 Run this application as follows:
 
