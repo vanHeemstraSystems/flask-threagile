@@ -87,14 +87,14 @@ def login_user():
         user = User.query.filter_by(username=data['username']).first()
         
         # Stage 1: Plain Text
-        if user and user.password == data['password']:  # Verify password in plain text
+        if user and user.password == data['password']:  # Compare passwords in plain text
             return jsonify({'message': 'Login successful'}), 200
         # End Stage 1
             
         ## Stage 2: Encryption
         # if user:
         #     decrypted_password = cipher_suite.decrypt(user.password).decode()  # Decrypt the stored password
-        #     if decrypted_password == data['password']:
+        #     if decrypted_password == data['password']:  # Compare decrypted passwords
         #         return jsonify({'message': 'Login successful'}), 200
         ## End Stage 2
        
