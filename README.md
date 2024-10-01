@@ -28,6 +28,7 @@ Here’s a simple example of a Python Flask application using SQLAlchemy, along 
 |   └── .keepgit
 ├── .gitignore
 ├── README.md
+├── threagile.sh
 └── threagile_config.yaml
 ```
 
