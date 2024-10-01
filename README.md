@@ -47,7 +47,7 @@ Werkzeug
 Execute Threagile on a model yaml file (via docker): 
 
 ```
-$ ./threagile.sh -verbose -model /app/work/threagile_config.yaml -output /app/work
+$ ./threagile.sh -verbose -model /app/work/threagile_config.yaml -output /app/work/reports
 ```
 
 ### How to run the Application
