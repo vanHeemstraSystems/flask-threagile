@@ -13,13 +13,17 @@ Here’s a simple example of a Python Flask application using SQLAlchemy, along 
 ├── .gitignore
 ├── README.md
 ├── flask_app
+|   ├── .venv
+|   |   └── .keepgit
 |   ├── app.py
 |   ├── models.py
 |   ├── requirements.txt
-|   └── templates
-|       ├── login.html
-|       ├── add_user.html
-|       ├── delete_user.html
+|   ├── templates
+|   |   ├── login.html
+|   |   ├── add_user.html
+|   |   └── delete_user.html
+|   └── tests
+|       └── .keepgit
 ├── reports
 |   └── .keepgit
 └── threagile_config.yaml
