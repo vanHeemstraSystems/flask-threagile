@@ -40,6 +40,16 @@ Flask-SQLAlchemy
 Werkzeug
 ```
 
+### How to run the Threagile Docker Container
+
+**Requirements**:
+
+Execute Threagile on a model yaml file (via docker): 
+
+```
+$ ./threagile.sh -verbose -model /app/work/threagile_config.yaml -output /app/work
+```
+
 ### How to run the Application
 
 **Requirements**:
