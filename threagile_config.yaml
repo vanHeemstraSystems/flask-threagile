@@ -1,0 +1,31 @@
+# Threagile Configuration File
+
+project:
+  name: Flask User Management App
+  version: 1.0
+
+scan:
+  directories:
+    - ./flask_app
+  file_types:
+    - python
+  exclude:
+    - tests/
+    - venv/
+  
+rules:
+  - name: SQL Injection Prevention
+    description: Ensure user inputs are properly sanitized.
+    enabled: true
+
+  - name: Password Hashing
+    description: Check that passwords are hashed before storage.
+    enabled: true
+
+  - name: Sensitive Data Exposure
+    description: Identify any plaintext sensitive information.
+    enabled: true
+
+report:
+  format: markdown
+  output: reports/security_report.md
