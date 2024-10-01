@@ -19,6 +19,9 @@ Here’s a simple example of a Python Flask application using SQLAlchemy, along 
         ├── login.html
         ├── add_user.html
         ├── delete_user.html
+├── reports
+    ├── .keepgit
+
 ```
 
 **1. `requirements.txt`**
