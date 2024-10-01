@@ -86,17 +86,19 @@ def login_user():
             
         ## Stage 2: Encryption
         # if user:
-        #    decrypted_password = cipher_suite.decrypt(user.password).decode()  # Decrypt the stored password
-        #    if decrypted_password == data['password']:
-        #        return jsonify({'message': 'Login successful'}), 200
+        #     decrypted_password = cipher_suite.decrypt(user.password).decode()  # Decrypt the stored password
+        #     if decrypted_password == data['password']:
+        #         return jsonify({'message': 'Login successful'}), 200
        
         ## Stage 3: Hashing
+        # if user and user.password == hash_password(data['password']):  # Compare hashed passwords
+        #     return jsonify({'message': 'Login successful'}), 200
 
         ## Stage 4: Hashing and Salting
         
         ## Stage 5: Bcrypt
         # if user and bcrypt.checkpw(data['password'].encode(), user.password_hash.encode()): # Verify password in bcrypt
-        #    return jsonify({'message': 'Login successful'}), 200
+        #     return jsonify({'message': 'Login successful'}), 200
             
         return jsonify({'message': 'Invalid credentials'}), 401 
     return render_template('login.html')
