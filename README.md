@@ -82,7 +82,7 @@ package, recreate your virtual environment.
 4) Start the virtual environment and enter: ```. .venv/bin/activate```
 5) Set the Flask App to app directory: ```(.venv) $ export FLASK_APP=app```
 6) Set the Flask Environment to development: ```(.venv) $ export FLASK_ENV=development```
-7) Run the flask app: ```(.venv) $ flask run```
+7) Run the flask app: ```(.venv) $ flask run``` , alternatively ```(.venv) $ python3 app.py```
 8) Open the web interface as prompted
 9) Use ```CTRL+c``` to exit the web server.
 10) Alternatively run the flask command line interface: ```(.venv) $ flask shell```
