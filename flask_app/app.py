@@ -39,20 +39,20 @@ def home():
 #   return hashlib.sha256(password.encode()).hexdigest()
 # # End Stage 3
 
-# # Stage 4: Hashing and Salting
-# def hash_password(password, salt):
-#   """Hash a password with a salt using SHA-256."""
-#   return hashlib.sha256((salt + password).encode()).hexdigest()
-# # End Stage 4
+# Stage 4: Hashing and Salting
+def hash_password(password, salt):
+  """Hash a password with a salt using SHA-256."""
+  return hashlib.sha256((salt + password).encode()).hexdigest()
+# End Stage 4
 
 @app.route('/add_user', methods=['GET', 'POST']) 
 def add_user():
     if request.method == 'POST':
         data = request.form
         
-        # Stage 1: Plain Text
-        new_user = User(username=data['username'], email=data['email'], password=data['password'])  # Store password in plain text
-        # End Stage 1
+        # # Stage 1: Plain Text
+        # new_user = User(username=data['username'], email=data['email'], password=data['password'])  # Store password in plain text
+        # # End Stage 1
        
         # # Stage 2: Encryption
         # encrypted_password = cipher_suite.encrypt(data['password'].encode())  # Encrypt the password
@@ -64,11 +64,11 @@ def add_user():
         # new_user = User(username=data['username'], email=data['email'], password=hashed_password)
         # # End Stage 3
 
-        # # Stage 4: Hashing and Salting
-        # salt = os.urandom(16).hex()  # Generate a random salt
-        # hashed_password = hash_password(data['password'], salt)  # Hash the password with the salt
-        # new_user = User(username=data['username'], email=data['email'], password=hashed_password + ':' + salt)  # Store hash and salt
-        # # End Stage 4
+        # Stage 4: Hashing and Salting
+        salt = os.urandom(16).hex()  # Generate a random salt
+        hashed_password = hash_password(data['password'], salt)  # Hash the password with the salt
+        new_user = User(username=data['username'], email=data['email'], password=hashed_password + ':' + salt)  # Store hash and salt
+        # End Stage 4
         
         # # Stage 5: Bcrypt
         # hashed_password = bcrypt.hashpw(data['password'].encode(), bcrypt.gensalt()) # Hash the password
@@ -86,10 +86,10 @@ def login_user():
         data = request.form
         user = User.query.filter_by(username=data['username']).first()
         
-        # Stage 1: Plain Text
-        if user and user.password == data['password']:  # Compare passwords in plain text
-            return jsonify({'message': 'Login successful'}), 200
-        # End Stage 1
+        # # Stage 1: Plain Text
+        # if user and user.password == data['password']:  # Compare passwords in plain text
+        #     return jsonify({'message': 'Login successful'}), 200
+        # # End Stage 1
             
         # # Stage 2: Encryption
         # if user:
@@ -103,12 +103,12 @@ def login_user():
         #    return jsonify({'message': 'Login successful'}), 200
         # # End Stage 3
 
-        # # Stage 4: Hashing and Salting
-        # if user:
-        #    password_hash, salt = user.password_hash.split(':')  # Split stored hash and salt
-        #    if password_hash == hash_password(data['password'], salt):  # Compare hashed passwords
-        #        return jsonify({'message': 'Login successful'}), 200
-        # # End Stage 4
+        # Stage 4: Hashing and Salting
+        if user:
+           password_hash, salt = user.password_hash.split(':')  # Split stored hash and salt
+           if password_hash == hash_password(data['password'], salt):  # Compare hashed passwords
+               return jsonify({'message': 'Login successful'}), 200
+        # End Stage 4
    
         # # Stage 5: Bcrypt
         # if user and bcrypt.checkpw(data['password'].encode(), user.password_hash.encode()): # Verify password in bcrypt
