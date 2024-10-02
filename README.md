@@ -72,7 +72,8 @@ The virtual environment was not created successfully because ensurepip is not
 available.  On Debian/Ubuntu systems, you need to install the python3-venv
 package using the following command.
 
-    apt install python3.10-venv
+    sudo apt-get update
+    sudo apt install python3.10-venv
 
 You may need to use sudo with that command.  After installing the python3-venv
 package, recreate your virtual environment.
