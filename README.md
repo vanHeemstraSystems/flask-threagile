@@ -63,8 +63,7 @@ $ ./threagile.sh -verbose -model /app/work/threagile.yaml -output /app/work/repo
 Run this application as follows:
 
 1) Enter ```flask_app``` directory: ```$ cd flask_app```
-2) Run ```pip install -r requirements.txt```
-3) If non-existent, create a virtual environment inside the ```flask_app``` directory: ```python3 -m venv .venv```
+2) If non-existent, create a virtual environment inside the ```flask_app``` directory: ```python3 -m venv .venv```
 
 In case of the following, follow its advice:
 
@@ -79,7 +78,8 @@ You may need to use sudo with that command.  After installing the python3-venv
 package, recreate your virtual environment.
 ```
 
-4) Start the virtual environment and enter: ```. .venv/bin/activate```
+3) Start the virtual environment and enter: ```. .venv/bin/activate```
+4) Run ```pip install -r requirements.txt```
 5) Set the Flask App to app directory: ```(.venv) $ export FLASK_APP=app```
 6) Set the Flask Environment to development: ```(.venv) $ export FLASK_ENV=development```
 7) Run the flask app: ```(.venv) $ flask run``` , alternatively ```(.venv) $ python3 app.py```
