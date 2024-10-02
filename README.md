@@ -50,7 +50,7 @@ Werkzeug
 Execute Threagile on a model yaml file (via docker) from the root directory of this repository: 
 
 ```
-$ ./threagile.sh -verbose -model /app/work/threagile_config.yaml -output /app/work/reports
+$ ./threagile.sh -verbose -model /app/work/threagile.yaml -output /app/work/reports
 ```
 
 ### How to run the Flask Application
