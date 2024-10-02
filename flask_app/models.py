@@ -9,7 +9,7 @@ class User(db.Model):
     email = db.Column(db.String(120), unique=True, nullable=False)
 
     # Stage 1: Plain Text
-     password = db.Column(db.String(128), nullable=False)  # Store password in plain text
+    password = db.Column(db.String(128), nullable=False)  # Store password in plain text
     # End Stage 1
 
     ## Stage 2: Encryption
@@ -29,4 +29,4 @@ class User(db.Model):
     ## End Stage 5
 
 def __repr__(self):
-return f'<User {self.username}>'
+    return f'<User {self.username}>'
