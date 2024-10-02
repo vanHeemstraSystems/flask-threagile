@@ -10,6 +10,15 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db' 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False 
 
+def run_threagile():
+    """Run Threagile analysis and generate a report."""
+    command = ['threagile', 'analyze', './flask_app', '--config', 'threagile_config.yaml']     
+    #subprocess.run(command)
+
+with app.app_context():
+    # your code here to do things before first request
+    run_threagile()
+
 db.init_app(app)
 
 ## Stage 2: Encryption
@@ -19,15 +28,6 @@ db.init_app(app)
 
 with app.app_context():
    db.create_all()
-
-def run_threagile():
-    """Run Threagile analysis and generate a report."""
-    command = ['threagile', 'analyze', './flask_app', '--config', 'threagile_config.yaml']     
-    subprocess.run(command)
-
-@app.before_first_request 
-def before_first_request():
-    run_threagile()
 
 @app.route('/') 
 def home():
