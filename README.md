@@ -65,6 +65,20 @@ Run this application as follows:
 1) Enter ```flask_app``` directory: ```$ cd flask_app```
 2) Run ```pip install -r requirements.txt```
 3) If non-existent, create a virtual environment inside the ```flask_app``` directory: ```python3 -m venv .venv```
+
+In case of the following, follow its advice:
+
+```
+The virtual environment was not created successfully because ensurepip is not
+available.  On Debian/Ubuntu systems, you need to install the python3-venv
+package using the following command.
+
+    apt install python3.10-venv
+
+You may need to use sudo with that command.  After installing the python3-venv
+package, recreate your virtual environment.
+```
+
 4) Start the virtual environment and enter: ```. .venv/bin/activate```
 5) Set the Flask App to app directory: ```(.venv) $ export FLASK_APP=app```
 6) Set the Flask Environment to development: ```(.venv) $ export FLASK_ENV=development```
