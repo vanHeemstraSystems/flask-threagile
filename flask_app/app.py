@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import bcrypt # Used for bcrypt
-#import hashlib # Used for hashing and salting
+import hashlib # Used for hashing and salting
 import subprocess
 from cryptography.fernet import Fernet # Used for encryption
 from flask import Flask, request, jsonify, render_template, redirect, url_for 

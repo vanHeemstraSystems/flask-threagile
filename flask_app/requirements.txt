@@ -2,5 +2,5 @@ bcrypt
 cryptography
 Flask
 Flask-SQLAlchemy
-# hashlib
+# hashlib : Now part of Python3
 Werkzeug
