@@ -67,12 +67,12 @@ def add_user():
         # # Stage 4: Hashing and Salting
         # salt = os.urandom(16).hex()  # Generate a random salt
         # hashed_password = hash_password(data['password'], salt)  # Hash the password with the salt
-        # new_user = User(username=data['username'], email=data['email'], password_hash=hashed_password + ':' + salt)  # Store hash and salt
+        # new_user = User(username=data['username'], email=data['email'], password=hashed_password + ':' + salt)  # Store hash and salt
         # # End Stage 4
         
         # # Stage 5: Bcrypt
         # hashed_password = bcrypt.hashpw(data['password'].encode(), bcrypt.gensalt()) # Hash the password
-        # new_user = User(username=data['username'], email=data['email'], password_hash=hashed_password.decode()) # Store hashed bcrypt password
+        # new_user = User(username=data['username'], email=data['email'], password=hashed_password.decode()) # Store hashed bcrypt password
         # # End Stage 5
         
         db.session.add(new_user)
