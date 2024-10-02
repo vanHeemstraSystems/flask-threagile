@@ -12,20 +12,20 @@ class User(db.Model):
     password = db.Column(db.String(128), nullable=False)  # Store password in plain text
     # End Stage 1
 
-    ## Stage 2: Encryption
-    #password = db.Column(db.LargeBinary, nullable=False)  # Store encrypted password
-    ## End Stage 2
+    # # Stage 2: Encryption
+    # password = db.Column(db.LargeBinary, nullable=False)  # Store encrypted password
+    # # End Stage 2
   
     ## Stage 3: Hashing
-    #password = db.Column(db.String(64), nullable=False)  # Store hashed password
+    # password = db.Column(db.String(64), nullable=False)  # Store hashed password
     ## End Stage 3
   
     ## Stage 4: Hashing and Salting
-    #password_hash = db.Column(db.String(128), nullable=False)  # Store hashed and salted password
+    # password_hash = db.Column(db.String(128), nullable=False)  # Store hashed and salted password
     ## End Stage 4
   
     ## Stage 5: BCrypt  
-    #password_hash = db.Column(db.String(128), nullable=False) # Store hashed password with bcrypt
+    # password_hash = db.Column(db.String(128), nullable=False) # Store hashed password with bcrypt
     ## End Stage 5
 
 def __repr__(self):

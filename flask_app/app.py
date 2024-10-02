@@ -21,10 +21,10 @@ with app.app_context():
 
 db.init_app(app)
 
-## Stage 2: Encryption
-#key = Fernet.generate_key() # Generate a key for encryption and decryption
-#cipher_suite = Fernet(key)
-## End Stage 2
+# # Stage 2: Encryption
+# key = Fernet.generate_key() # Generate a key for encryption and decryption
+# cipher_suite = Fernet(key)
+# # End Stage 2
 
 with app.app_context():
    db.create_all()
@@ -33,17 +33,17 @@ with app.app_context():
 def home():
     return render_template('home.html')
 
-## Stage 3: Hashing
-#def hash_password(password):
+# # Stage 3: Hashing
+# def hash_password(password):
 #   """Hash a password using SHA-256."""
 #   return hashlib.sha256(password.encode()).hexdigest()
-## End Stage 3
+# # End Stage 3
 
-## Stage 4: Hashing and Salting
-#def hash_password(password, salt):
+# # Stage 4: Hashing and Salting
+# def hash_password(password, salt):
 #   """Hash a password with a salt using SHA-256."""
 #   return hashlib.sha256((salt + password).encode()).hexdigest()
-## End Stage 4
+# # End Stage 4
 
 @app.route('/add_user', methods=['GET', 'POST']) 
 def add_user():
@@ -54,26 +54,26 @@ def add_user():
         new_user = User(username=data['username'], email=data['email'], password=data['password'])  # Store password in plain text
         # End Stage 1
        
-        ## Stage 2: Encryption
-        #encrypted_password = cipher_suite.encrypt(data['password'].encode())  # Encrypt the password
-        #new_user = User(username=data['username'], email=data['email'], password=encrypted_password)
-        ## End Stage 2
+        # # Stage 2: Encryption
+        # encrypted_password = cipher_suite.encrypt(data['password'].encode())  # Encrypt the password
+        # new_user = User(username=data['username'], email=data['email'], password=encrypted_password)
+        # # End Stage 2
         
-        ## Stage 3: Hashing
-        #hashed_password = hash_password(data['password'])  # Hash the password
-        #new_user = User(username=data['username'], email=data['email'], password=hashed_password)
-        ## End Stage 3
+        # # Stage 3: Hashing
+        # hashed_password = hash_password(data['password'])  # Hash the password
+        # new_user = User(username=data['username'], email=data['email'], password=hashed_password)
+        # # End Stage 3
 
-        ## Stage 4: Hashing and Salting
-        #salt = os.urandom(16).hex()  # Generate a random salt
-        #hashed_password = hash_password(data['password'], salt)  # Hash the password with the salt
-        #new_user = User(username=data['username'], email=data['email'], password_hash=hashed_password + ':' + salt)  # Store hash and salt
-        ## End Stage 4
+        # # Stage 4: Hashing and Salting
+        # salt = os.urandom(16).hex()  # Generate a random salt
+        # hashed_password = hash_password(data['password'], salt)  # Hash the password with the salt
+        # new_user = User(username=data['username'], email=data['email'], password_hash=hashed_password + ':' + salt)  # Store hash and salt
+        # # End Stage 4
         
-        ## Stage 5: Bcrypt
-        #hashed_password = bcrypt.hashpw(data['password'].encode(), bcrypt.gensalt()) # Hash the password
-        #new_user = User(username=data['username'], email=data['email'], password_hash=hashed_password.decode()) # Store hashed bcrypt password
-        ## End Stage 5
+        # # Stage 5: Bcrypt
+        # hashed_password = bcrypt.hashpw(data['password'].encode(), bcrypt.gensalt()) # Hash the password
+        # new_user = User(username=data['username'], email=data['email'], password_hash=hashed_password.decode()) # Store hashed bcrypt password
+        # # End Stage 5
         
         db.session.add(new_user)
         db.session.commit()
@@ -91,29 +91,29 @@ def login_user():
             return jsonify({'message': 'Login successful'}), 200
         # End Stage 1
             
-        ## Stage 2: Encryption
-        #if user:
+        # # Stage 2: Encryption
+        # if user:
         #    decrypted_password = cipher_suite.decrypt(user.password).decode()  # Decrypt the stored password
         #    if decrypted_password == data['password']:  # Compare decrypted passwords
         #        return jsonify({'message': 'Login successful'}), 200
-        ## End Stage 2
+        # # End Stage 2
        
-        ## Stage 3: Hashing
-        #if user and user.password == hash_password(data['password']):  # Compare hashed passwords
+        # # Stage 3: Hashing
+        # if user and user.password == hash_password(data['password']):  # Compare hashed passwords
         #    return jsonify({'message': 'Login successful'}), 200
-        ## End Stage 3
+        # # End Stage 3
 
-        ## Stage 4: Hashing and Salting
-        #if user:
+        # # Stage 4: Hashing and Salting
+        # if user:
         #    password_hash, salt = user.password_hash.split(':')  # Split stored hash and salt
         #    if password_hash == hash_password(data['password'], salt):  # Compare hashed passwords
         #        return jsonify({'message': 'Login successful'}), 200
-        ## End Stage 4
+        # # End Stage 4
    
-        ## Stage 5: Bcrypt
-        #if user and bcrypt.checkpw(data['password'].encode(), user.password_hash.encode()): # Verify password in bcrypt
+        # # Stage 5: Bcrypt
+        # if user and bcrypt.checkpw(data['password'].encode(), user.password_hash.encode()): # Verify password in bcrypt
         #    return jsonify({'message': 'Login successful'}), 200
-        ## End Stage 5
+        # # End Stage 5
             
         return jsonify({'message': 'Invalid credentials'}), 401 
     return render_template('login.html')
